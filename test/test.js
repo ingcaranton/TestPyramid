@@ -1,19 +1,50 @@
 var chai = require("chai");
 var expect = chai.expect;
+var request = require('request');
 
-describe("unitTest", function() {
-   	describe('Validarse', function(){
-	  	describe('#validar()', function(){
-		   	it('comprueba si se pudo valdiar en BD', function(){
-		      	chai.assert.equal("", "");
+describe("GET", function() {
+	describe('/index', function(){
+			it('error 500', function(done){
+		      	request.get('http://localhost:3000',function (error, response, body) {
+		      		expect(response.statusCode).to.equal(500);
+		      		done();
+		      	});
 		    });
-		});
-	}),
-   	describe("GuardarDatos",function(){
-		describe("#guardar()",function(){
-		   it('comprueba si esta guardando los datos en la BD',function(){
-		   		expect("").to.equal("");
-		   });
-		}) 
+	});
+
+	describe('/perfil', function(){
+			it('error 500', function(done){
+		      	request.get('http://localhost:3000/perfil',function (error, response, body) {
+		      		expect(response.statusCode).to.equal(500);
+		      		done();
+		      	});
+		    });
+	});
+
+	describe('/registrar', function(){
+			it('error 500', function(done){
+		      	request.get('http://localhost:3000/registrar',function (error, response, body) {
+		      		expect(response.statusCode).to.equal(500);
+		      		done();
+		      	});
+		    });
+	});
+});
+describe("POST", function() {
+	describe('/registrar', function(){
+			it('error 500', function(done){
+		      	request.post('http://localhost:3000/registrar',function (error, response, body) {
+		      		expect(response.statusCode).to.equal(500);
+		      		done();
+		      	});
+		    });
+	});
+	describe('/autenticar', function(){
+			it('error 500', function(done){
+		      	request.post('http://localhost:3000/autenticarx	',function (error, response, body) {
+		      		expect(response.statusCode).to.not.equal(500);
+		      		done();
+		      	});
+		    });
 	});
 });

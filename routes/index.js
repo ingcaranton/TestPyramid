@@ -1,9 +1,22 @@
 var express = require('express');
-var router = express.Router();
+var app = module.exports = express();
 
 /* GET home page. */
-router.get('/', function(req, res) {
+app.route('/').get(function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-module.exports = router;
+app.route('/perfil').get(function(req, res) {
+  res.send('perfil');
+});
+
+app.route('/registrar').get(function(req, res) {
+  res.send('registrar');
+});
+
+app.route('/registrar').post(function(req, res) {
+  res.redirect("/");
+});
+app.route('/autenticar').post(function(req, res) {
+  res.redirect("/");
+});
